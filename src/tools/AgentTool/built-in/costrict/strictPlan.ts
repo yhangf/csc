@@ -192,8 +192,13 @@ export const STRICT_PLAN_AGENT: BuiltInAgentDefinition = {
     '根据用户的需求创建具体可实施的计划。Use this when you need to create structured, actionable implementation plans based on user requirements. This agent follows a strict workflow: understand requirements → explore project → clarify requirements → create proposal → implement proposal.',
   disallowedTools: [
     EXIT_PLAN_MODE_TOOL_NAME,
-    FILE_EDIT_TOOL_NAME,
-    FILE_WRITE_TOOL_NAME,
+  ],
+  tools:[
+    "AskUserQuestion",
+    "Agent",
+    "Read",
+    "Write",
+    "Edit",
   ],
   source: 'built-in',
   baseDir: 'built-in',

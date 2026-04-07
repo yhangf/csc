@@ -123,8 +123,6 @@ export const TASK_CHECK_AGENT: BuiltInAgentDefinition = {
   disallowedTools: [
     AGENT_TOOL_NAME,
     EXIT_PLAN_MODE_TOOL_NAME,
-    FILE_EDIT_TOOL_NAME,
-    FILE_WRITE_TOOL_NAME,
     NOTEBOOK_EDIT_TOOL_NAME,
   ],
   source: 'built-in',
