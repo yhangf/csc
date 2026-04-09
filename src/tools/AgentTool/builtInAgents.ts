@@ -25,6 +25,7 @@ import { TDD_RUN_AND_FIX_AGENT } from '../../costrict/agents/tddRunAndFix.js'
 import { TDD_TEST_AND_FIX_AGENT } from '../../costrict/agents/tddTestAndFix.js'
 import { TDD_TEST_DESIGN_AGENT } from '../../costrict/agents/tddTestDesign.js'
 import { TDD_TEST_PREPARE_AGENT } from '../../costrict/agents/tddTestPrepare.js'
+import { TDD_AGENT } from '../../costrict/agents/tdd.js'
 import { STATUSLINE_SETUP_AGENT } from './built-in/statuslineSetup.js'
 import { VERIFICATION_AGENT } from './built-in/verificationAgent.js'
 import type { AgentDefinition } from './loadAgentsDir.js'
@@ -84,6 +85,7 @@ export function getBuiltInAgents(): AgentDefinition[] {
     TDD_TEST_AND_FIX_AGENT,
     TDD_TEST_DESIGN_AGENT,
     TDD_TEST_PREPARE_AGENT,
+    TDD_AGENT,
   ]
 
   if (areExplorePlanAgentsEnabled()) {
