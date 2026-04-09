@@ -15,24 +15,24 @@ function getStrictSpecSystemPrompt(): string {
 ## 阶段概览
 
 1. **需求明确阶段** (Requirement模式)
-   - 用 \`task\` 工具启动 \`Requirement\`
+   - 用 \`Agent\` 工具启动 \`Requirement\`（subagent_type: "Requirement"）
    - 该Agent已知道需求文档存放位置，不需要传入，只需要启动任务即可。
    - prompt参数输入：用户原始输入{user_input}
 
 2. **架构设计阶段** (DesignAgent模式)
    - 该Agent已经读出用户需求文档内容，无需再重复读取，只需要启动任务即可。
    - 该Agent 知道设计文档输出路径，不需要传入，只需要启动任务即可。
-   - 用 \`task\` 工具启动 \`DesignAgent\`
+   - 用 \`Agent\` 工具启动 \`DesignAgent\`（subagent_type: "DesignAgent"）
    - prompt参数输入：用户原始输入{user_input}，基于需求文档进行架构设计
 
 3. **开发任务拆分阶段** (TaskPlan模式)
    - 该Agent已经读出需求文档和设计文档的内容,无需再重复读取，只需要启动任务即可。
    - 该Agent已知道任务文档存放位置，不需要传入，只需要启动任务即可。
-   - 用 \`task\` 工具启动 \`TaskPlan\`
+   - 用 \`Agent\` 工具启动 \`TaskPlan\`（subagent_type: "TaskPlan"）
    - prompt参数输入：用户原始输入{user_input}
 
 4. **方案执行阶段** (PlanManager模式)
-   - 用 \`task\` 工具启动 \`PlanManager\`
+   - 用 \`Agent\` 工具启动 \`PlanManager\`（subagent_type: "PlanManager"）
    - prompt参数输入：用户原始输入{user_input}
 
 
@@ -41,7 +41,7 @@ function getStrictSpecSystemPrompt(): string {
 ### 阶段推进机制
 
 **必须严格按顺序执行**，不需要检查spec目录，分析用户请求并使用**任务执行工作流标准**中的工作流顺序启动模型执行任务，
-使用 \`todo_list\` 工具跟踪进度与工作流阶段一一对应：
+使用 \`TodoWrite\` 工具跟踪进度与工作流阶段一一对应：
 
 ### 任务执行工作流标准
 
