@@ -6080,7 +6080,7 @@ async function run(): Promise<CommanderCommand> {
 		.configureHelp(createSortedHelpConfig());
 
 	auth.command("login")
-		.description("Sign in to your Anthropic account")
+		.description("Sign in to your CoStrict account")
 		.option(
 			"--email <email>",
 			"Pre-populate email address on the login page",
@@ -6118,7 +6118,7 @@ async function run(): Promise<CommanderCommand> {
 		});
 
 	auth.command("logout")
-		.description("Log out from your Anthropic account")
+		.description("Log out from your CoStrict account")
 		.action(async () => {
 			const { authLogout } = await import("./cli/handlers/auth.js");
 			await authLogout();

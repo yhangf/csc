@@ -1,7 +1,7 @@
 {
   "userMessage": {
     "role": "user",
-    "content": "Hello, Claude"
+    "content": "Hello, CoStrict"
   },
   "assistantMessage": {
     "role": "assistant",

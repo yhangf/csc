@@ -99,7 +99,7 @@ export function Onboarding({ onDone }: Props): React.ReactNode {
          */}
         <OrderedList>
           <OrderedList.Item>
-            <Text>Claude can make mistakes</Text>
+            <Text>CoStrict can make mistakes</Text>
             <Text dimColor wrap="wrap">
               You should always review Claude&apos;s responses, especially when
               <Newline />
@@ -114,7 +114,7 @@ export function Onboarding({ onDone }: Props): React.ReactNode {
             <Text dimColor wrap="wrap">
               For more details see:
               <Newline />
-              <Link url="https://code.claude.com/docs/en/security" />
+              <Link url="https://docs.costrict.ai/" />
             </Text>
           </OrderedList.Item>
         </OrderedList>
