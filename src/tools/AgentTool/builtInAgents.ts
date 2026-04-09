@@ -3,7 +3,6 @@ import { getIsNonInteractiveSession } from '../../bootstrap/state.js'
 import { getFeatureValue_CACHED_MAY_BE_STALE } from '../../services/analytics/growthbook.js'
 import { isEnvTruthy } from '../../utils/envUtils.js'
 import { PLAN_APPLY_AGENT } from '../../costrict/agents/planApply.js'
-import { REVIEW_AND_FIX_AGENT } from '../../costrict/agents/reviewAndFix.js'
 import { STRICT_PLAN_AGENT } from '../../costrict/agents/strictPlan.js'
 import { SUB_CODING_AGENT } from '../../costrict/agents/subCoding.js'
 import { TASK_CHECK_AGENT } from '../../costrict/agents/taskCheck.js'
@@ -54,7 +53,6 @@ export function getBuiltInAgents(): AgentDefinition[] {
     PLAN_AGENT,
     STRICT_PLAN_AGENT,
     PLAN_APPLY_AGENT,
-    REVIEW_AND_FIX_AGENT,
     SUB_CODING_AGENT,
     TASK_CHECK_AGENT,
     QUICK_EXPLORE_AGENT,
