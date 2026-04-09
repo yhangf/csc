@@ -11,6 +11,10 @@ import { CLAUDE_CODE_GUIDE_AGENT } from './built-in/claudeCodeGuideAgent.js'
 import { EXPLORE_AGENT } from './built-in/exploreAgent.js'
 import { GENERAL_PURPOSE_AGENT } from './built-in/generalPurposeAgent.js'
 import { PLAN_AGENT } from './built-in/planAgent.js'
+import { WIKI_PROJECT_ANALYZE_AGENT } from '../../costrict/agent/wikiProjectAnalyze.js'
+import { WIKI_CATALOGUE_DESIGN_AGENT } from '../../costrict/agent/wikiCatalogueDesign.js'
+import { WIKI_DOCUMENT_GENERATE_AGENT } from '../../costrict/agent/wikiDocumentGenerate.js'
+import { WIKI_INDEX_GENERATION_AGENT } from '../../costrict/agent/wikiIndexGeneration.js'
 import { STATUSLINE_SETUP_AGENT } from './built-in/statuslineSetup.js'
 import { VERIFICATION_AGENT } from './built-in/verificationAgent.js'
 import type { AgentDefinition } from './loadAgentsDir.js'
@@ -56,6 +60,10 @@ export function getBuiltInAgents(): AgentDefinition[] {
     SUB_CODING_AGENT,
     TASK_CHECK_AGENT,
     QUICK_EXPLORE_AGENT,
+    WIKI_PROJECT_ANALYZE_AGENT,
+    WIKI_CATALOGUE_DESIGN_AGENT,
+    WIKI_DOCUMENT_GENERATE_AGENT,
+    WIKI_INDEX_GENERATION_AGENT,
   ]
 
   if (areExplorePlanAgentsEnabled()) {
