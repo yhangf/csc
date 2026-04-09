@@ -16,8 +16,9 @@ src/utils/vendor/
 .agents/
 .codex/
 .omx/
+.omc/**/*.json
 .claude/
-.costrict/
+.costrict/*.json
 
 # Binary / screenshot files (root only)
 /*.png

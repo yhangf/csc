@@ -64,7 +64,9 @@ export async function loadCoStrictCredentials(): Promise<CoStrictCredentials | n
 /**
  * 保存 CoStrict 凭证到 ~/.claude/csc-auth.json
  */
-export async function saveCoStrictCredentials(credentials: CoStrictCredentials): Promise<void> {
+export async function saveCoStrictCredentials(
+  credentials: CoStrictCredentials,
+): Promise<void> {
   const filepath = getCoStrictCredentialsPath()
   await fs.mkdir(getClaudeConfigHomeDir(), { recursive: true })
   await fs.writeFile(filepath, JSON.stringify(credentials, null, 2) + '\n', {
@@ -91,6 +93,20 @@ export async function hasCoStrictCredentials(): Promise<boolean> {
   try {
     await fs.access(getCoStrictCredentialsPath())
     return true
+  } catch {
+    return false
+  }
+}
+
+/**
+ * 同步检查 CoStrict 凭证是否存在
+ * 供同步上下文（如 modelOptions）使用
+ */
+export function hasCoStrictCredentialsSync(): boolean {
+  try {
+    // 使用 require 的同步文件系统检查
+    const { existsSync } = require('node:fs')
+    return existsSync(getCoStrictCredentialsPath())
   } catch {
     return false
   }
