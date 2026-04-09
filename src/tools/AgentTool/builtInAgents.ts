@@ -2,11 +2,16 @@ import { feature } from 'bun:bundle'
 import { getIsNonInteractiveSession } from '../../bootstrap/state.js'
 import { getFeatureValue_CACHED_MAY_BE_STALE } from '../../services/analytics/growthbook.js'
 import { isEnvTruthy } from '../../utils/envUtils.js'
-import { PLAN_APPLY_AGENT } from '../../costrict/agents/planApply.js'
+import { DESIGN_AGENT } from '../../costrict/agents/designAgent.js'
+import { PLAN_MANAGER_AGENT } from '../../costrict/agents/planManager.js'
+import { QUICK_EXPLORE_AGENT } from '../../costrict/agents/quickExplore.js'
+import { REQUIREMENT_AGENT } from '../../costrict/agents/requirement.js'
+import { SPEC_PLAN_AGENT } from '../../costrict/agents/specPlan.js'
 import { STRICT_PLAN_AGENT } from '../../costrict/agents/strictPlan.js'
+import { STRICT_SPEC_AGENT } from '../../costrict/agents/strictSpec.js'
 import { SUB_CODING_AGENT } from '../../costrict/agents/subCoding.js'
 import { TASK_CHECK_AGENT } from '../../costrict/agents/taskCheck.js'
-import { QUICK_EXPLORE_AGENT } from '../../costrict/agents/quickExplore.js'
+import { TASK_PLAN_AGENT } from '../../costrict/agents/taskPlan.js'
 import { CLAUDE_CODE_GUIDE_AGENT } from './built-in/claudeCodeGuideAgent.js'
 import { EXPLORE_AGENT } from './built-in/exploreAgent.js'
 import { GENERAL_PURPOSE_AGENT } from './built-in/generalPurposeAgent.js'
@@ -19,6 +24,7 @@ import { TDD_RUN_AND_FIX_AGENT } from '../../costrict/agents/tddRunAndFix.js'
 import { TDD_TEST_AND_FIX_AGENT } from '../../costrict/agents/tddTestAndFix.js'
 import { TDD_TEST_DESIGN_AGENT } from '../../costrict/agents/tddTestDesign.js'
 import { TDD_TEST_PREPARE_AGENT } from '../../costrict/agents/tddTestPrepare.js'
+import { TDD_AGENT } from '../../costrict/backup/tdd.js'
 import { STATUSLINE_SETUP_AGENT } from './built-in/statuslineSetup.js'
 import { VERIFICATION_AGENT } from './built-in/verificationAgent.js'
 import type { AgentDefinition } from './loadAgentsDir.js'
@@ -60,10 +66,15 @@ export function getBuiltInAgents(): AgentDefinition[] {
     STATUSLINE_SETUP_AGENT,
     PLAN_AGENT,
     STRICT_PLAN_AGENT,
-    PLAN_APPLY_AGENT,
+    SPEC_PLAN_AGENT,
+    PLAN_MANAGER_AGENT,
     SUB_CODING_AGENT,
     TASK_CHECK_AGENT,
+    TASK_PLAN_AGENT,
     QUICK_EXPLORE_AGENT,
+    REQUIREMENT_AGENT,
+    DESIGN_AGENT,
+    STRICT_SPEC_AGENT,
     WIKI_PROJECT_ANALYZE_AGENT,
     WIKI_CATALOGUE_DESIGN_AGENT,
     WIKI_DOCUMENT_GENERATE_AGENT,
@@ -72,6 +83,7 @@ export function getBuiltInAgents(): AgentDefinition[] {
     TDD_TEST_AND_FIX_AGENT,
     TDD_TEST_DESIGN_AGENT,
     TDD_TEST_PREPARE_AGENT,
+    TDD_AGENT,
   ]
 
   if (areExplorePlanAgentsEnabled()) {
