@@ -63,6 +63,15 @@ type Props = {
   pauseStartTimeRef: React.RefObject<number | null>
   spinnerTip?: string
   responseLengthRef: React.RefObject<number>
+  apiMetricsRef?: React.RefObject<
+    Array<{
+      ttftMs: number;
+      firstTokenTime: number;
+      lastTokenTime: number;
+      responseLengthBaseline: number;
+      endResponseLength: number;
+    }>
+  >
   overrideColor?: keyof Theme | null
   overrideShimmerColor?: keyof Theme | null
   overrideMessage?: string | null
@@ -334,7 +343,7 @@ function SpinnerWithVerbInner({
     : showClearTip && !nextTask
       ? 'Use /clear to start fresh when switching topics and free up context'
       : showBtwTip && !nextTask
-        ? "Use /btw to ask a quick side question without interrupting Claude's current work"
+        ? "Use /btw to ask a quick side question without interrupting CoStrict's current work"
         : spinnerTip
 
   // Budget text (ant-only) — shown above the tip line

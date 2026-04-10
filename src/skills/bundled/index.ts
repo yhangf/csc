@@ -15,9 +15,9 @@ import { registerLoopSkill } from './loop.js'
 import { registerDreamSkill } from './dream.js'
 import { registerUpdateConfigSkill } from './updateConfig.js'
 import { registerVerifySkill } from './verify.js'
-import { registerProjectWikiSkill } from './projectWiki.js'
-import { registerTddSkill } from './tdd.js'
 import { registerStrictPlanSkill } from '../../costrict/skill/strictPlan.js'
+import { registerProjectWikiSkill } from 'src/costrict/skill/projectWiki.js'
+import { registerTddSkill } from 'src/costrict/skill/tdd.js'
 
 /**
  * Initialize all bundled skills.
