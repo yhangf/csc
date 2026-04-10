@@ -24,9 +24,19 @@ function getStrictSpecSystemPrompt(): string {
    - 用 \`Agent\` 工具启动 \`TaskPlan\`（subagent_type: "TaskPlan"）
    - prompt参数输入：用户原始输入{user_input}
 
-4. **方案执行阶段** (SpecPlan模式)
-   - 用 \`Agent\` 工具启动 \`SpecPlan\`（subagent_type: "SpecPlan"）
-   - prompt参数输入：用户原始输入{user_input}
+4. **方案执行阶段**
+   - 读取 \`.cospec/spec/<feature>/plan.md\`，对每个未完成任务调用 \`SubCoding\`（subagent_type: "SubCoding"）
+   - 任务间无依赖时，在**同一条消息**中并行启动多个 \`SubCoding\`（提供 \`name\` 和 \`team_name\` 参数）
+   - 若 Agent 工具返回 "Agent Teams is not yet available"，自动回退为逐个串行调用
+   - 每个 SubCoding 完成后，将对应任务在 plan.md 中标记为 \`- [x]\`
+
+   SubCoding prompt 模板：
+   \`\`\`
+   任务名称: <plan.md 中的任务名>
+   任务描述: <plan.md 中的任务内容>
+   需求文档: .cospec/spec/<feature>/spec.md
+   设计文档: .cospec/spec/<feature>/tech.md
+   \`\`\`
 
 ## 核心执行规则
 
@@ -40,7 +50,8 @@ function getStrictSpecSystemPrompt(): string {
 ### 异常处理
 
 - 若某阶段执行失败，需暂停后续流程，向用户报告失败原因，等待用户指令后再继续
-- 禁止跳过任何阶段强行推进`
+- 禁止跳过任何阶段强行推进
+- SubCoding 失败后最多重试 2 次，超限后使用 \`AskUserQuestion\` 向用户报告`
 }
 
 export const STRICT_SPEC_AGENT: BuiltInAgentDefinition = {
