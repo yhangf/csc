@@ -4,7 +4,6 @@ import { getFeatureValue_CACHED_MAY_BE_STALE } from '../../services/analytics/gr
 import { isEnvTruthy } from '../../utils/envUtils.js'
 import { DESIGN_AGENT } from '../../costrict/agents/designAgent.js'
 import { QUICK_EXPLORE_AGENT } from '../../costrict/agents/quickExplore.js'
-import { PLAN_MANAGER_AGENT } from '../../costrict/agents/planManager.js'
 import { REQUIREMENT_AGENT } from '../../costrict/agents/requirement.js'
 import { SPEC_PLAN_AGENT } from '../../costrict/agents/specPlan.js'
 import { STRICT_PLAN_AGENT } from '../../costrict/agents/strictPlan.js'
@@ -65,22 +64,17 @@ export function getBuiltInAgents(): AgentDefinition[] {
     GENERAL_PURPOSE_AGENT,
     STATUSLINE_SETUP_AGENT,
     PLAN_AGENT,
-    // StrictSpec workflow: full pipeline (Requirement → DesignAgent → TaskPlan → implementation)
+    // StrictSpec workflow: 4-stage pipeline (Requirement → DesignAgent → TaskPlan → SpecPlan)
     STRICT_SPEC_AGENT,
     REQUIREMENT_AGENT,
     DESIGN_AGENT,
     TASK_PLAN_AGENT,
+    SPEC_PLAN_AGENT,
     // StrictPlan workflow: lightweight plan → implement pipeline
     STRICT_PLAN_AGENT,
-    SPEC_PLAN_AGENT,
-    PLAN_MANAGER_AGENT,
     SUB_CODING_AGENT,
     TASK_CHECK_AGENT,
-    TASK_PLAN_AGENT,
     QUICK_EXPLORE_AGENT,
-    REQUIREMENT_AGENT,
-    DESIGN_AGENT,
-    STRICT_SPEC_AGENT,
     WIKI_PROJECT_ANALYZE_AGENT,
     WIKI_CATALOGUE_DESIGN_AGENT,
     WIKI_DOCUMENT_GENERATE_AGENT,
